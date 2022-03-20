@@ -29,6 +29,10 @@ Route::group([
 
 	], function ($router) {
 		
+		Route::apiResource('personas', 'App\Http\Controllers\PersonaController');
+		Route::apiResource('citas', 'App\Http\Controllers\CitaController');
 		
 	});
 });
+//Route::apiResource('personas', 'App\Http\Controllers\PersonaController');
+//Route::apiResource('citas', 'App\Http\Controllers\CitaController');

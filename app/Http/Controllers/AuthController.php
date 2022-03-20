@@ -28,7 +28,6 @@ class AuthController extends Controller
      */
     public function __construct(UserRepository $userRepository)
     {
-        //$this->middleware('auth:api', ['except' => ['login']]);
         $this->middleware('jwt.verify', ['except' => ['login']]);
         $this->userRepository = $userRepository;
     }
@@ -42,9 +41,8 @@ class AuthController extends Controller
     {
         
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|min:4',
-            //'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6'
+            'username' => 'required|string',
+            'password' => 'required|string'
         ]);
 
         if ($validator->fails()) {
